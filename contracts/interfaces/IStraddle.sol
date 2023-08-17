@@ -10,7 +10,8 @@ interface IStraddle {
         uint256 putCost;
     }
 
-    function buyStraddle(address _buyer, uint256 _strikeId, uint256 _amountSUSD) external;
-
+    function buyStraddle(uint256 _strikeId, uint256 _amountSUSD) external;
     function viewPosition(uint256 _index) external view returns (Position memory);
+    function viewAllPositions(address _user) external view returns (Position[] memory);
+    function getQuoteAssetAmountFromOptionsAmount(uint256 _amount, uint256 _strikeId) external view returns (uint256);
 }

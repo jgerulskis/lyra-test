@@ -35,6 +35,9 @@ library DecimalMath {
   /* The number representing 1.0. */
   uint public constant UNIT = 10 ** uint(decimals);
 
+  /* The number representing 100% */
+  uint public constant ONE_HUNDRED_PERCENT = 100;
+
   /**
    * @return Provides an interface to UNIT.
    */
@@ -54,5 +57,13 @@ library DecimalMath {
   function multiplyDecimal(uint x, uint y) internal pure returns (uint) {
     /* Divide by UNIT to remove the extra factor introduced by the product. */
     return (x * y) / UNIT;
+  }
+
+  /// @notice multiplies a number by a percentage
+  /// @param x the multiplicand
+  /// @param y the multiplier where 1 = 1% ... 100 = 100% ... 200 = 200%
+  /// @return product of x * y / 100
+  function multiplyByPercentage(uint x, uint y) internal pure returns (uint) {
+    return (x * y) / ONE_HUNDRED_PERCENT;
   }
 }

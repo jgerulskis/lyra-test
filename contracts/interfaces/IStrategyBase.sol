@@ -4,8 +4,8 @@ pragma solidity 0.8.9;
 
 /// @notice Interface for all strategies
 interface IStrategyBase {
-    error InsufficientCollateral();
-    error FailedTransfer(address from, uint256 amount);
+    error FailedTransfer(address to, address asset, uint256 amount);
+    error InvalidAmount(uint256 amount);
 
     event Initialized(address indexed _optionMarket, address indexed _curveSwap, address indexed _feeCounter);
 
